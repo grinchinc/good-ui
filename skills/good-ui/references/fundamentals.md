@@ -21,17 +21,26 @@ Use these principles to create or revise interfaces without imposing a house sty
 
 ## 1. Intentionality
 
-Make the UI feel guided by a coherent point of view rather than assembled from individually reasonable defaults.
+Make the UI feel guided by a coherent point of view rather than assembled from individually reasonable defaults. Keep that point of view in service of the product.
 
-- Establish a simple visual thesis from the product's purpose, audience, content, and desired tone.
-- Let the thesis inform typography, color, density, shape, imagery, and motion.
+- Begin with the product's recurring task, audience, content, existing brand, and desired tone.
+- Let those constraints inform typography, color, density, shape, imagery, and motion. A visual thesis may be subtle and structural; it does not need a slogan, literal theme, or signature effect.
 - Respect existing brand and project conventions. Extend them rather than casually replacing them.
 - Avoid unconscious defaults and fashionable clichés, especially interchangeable SaaS layouts.
 - Do not equate good design with minimal, neutral, spacious, or corporate. Expressive, dense, playful, and unconventional interfaces can be highly competent.
 - Repeat a small number of visual ideas so the experience feels authored and cohesive.
 - Make decorative choices reinforce identity, hierarchy, meaning, or delight.
+- Do not invent interface copy, metadata, or decorative sections merely to express the visual direction.
 - Correct accidental inconsistency without sanding away deliberate character.
 - Prefer a clear direction over a timid mixture of visual styles.
+
+### Application versus marketing composition
+
+- Identify whether the surface is an operational application, content experience, marketing page, or onboarding moment before choosing its composition.
+- Let an operational interface open on the working surface: the recurring task, current state, and useful content. Persistent heroes, manifestos, taglines, decorative dates, and promotional statements require a current user need.
+- Express identity through the working interface itself—type, color, density, rhythm, controls, and content treatment—before adding a separate atmospheric section.
+- Make frequently used tools less ceremonial after the first visit. Introductory material that helps once should not permanently dominate every session.
+- If non-functional copy or decoration consumes more of the initial viewport than the primary task, remove, reduce, or relocate it unless the product explicitly depends on that experience.
 
 Check: Can someone explain why this interface looks this way beyond “it looks modern”?
 
@@ -41,6 +50,8 @@ Make importance, relationships, and the intended path apparent before the user r
 
 - Give each screen or region one clear focal point and primary purpose.
 - Make the most important information and action visually dominant; do not let several elements compete for first attention.
+- Make prominence proportional to utility, frequency, and consequence. Large display copy is not justified merely because it creates drama.
+- Ensure the primary product surface—not a decorative explanation of the product—wins the initial attention hierarchy in recurring-use applications.
 - Reflect actual user priorities rather than internal organizational structure.
 - Combine size, weight, contrast, position, spacing, and color. Do not rely on font size or color alone.
 - Use a restrained number of hierarchy levels with perceptible differences.
@@ -69,10 +80,13 @@ Give content a clear spatial logic that feels stable, connected, and easy to sca
 - Establish an underlying grid or small set of alignment lines. Avoid independently positioned elements.
 - Use as few alignment axes as the composition reasonably permits.
 - Align related elements precisely; use asymmetry deliberately rather than accidentally.
+- Align global chrome, primary content, toolbars, and repeated rows to a coherent set of shared edges unless an offset communicates a real relationship.
 - Choose widths for the material. Prose, forms, data tables, and immersive media do not need the same container.
 - Constrain long-form text to a comfortable reading measure.
 - Do not make every section full-width because the viewport allows it.
 - Treat whitespace as composition, but match density to the task; more space is not automatically better.
+- Do not use empty space to manufacture importance for low-value copy. On large screens, keep related controls and content visually connected rather than pushing them apart because room exists.
+- Give the initial viewport a useful amount of the product. For recurring tools, users should not need to pass a ceremonial header before reaching the working surface.
 - Prefer natural flow and flexible constraints over brittle fixed positioning.
 - Use centered composition for short, focused material. Prefer left alignment for scanning and complex information.
 - Give prominent elements enough surrounding space to carry their visual weight.
@@ -92,6 +106,7 @@ Use space to create rhythm, communicate relationships, and establish an appropri
 - Make horizontal and vertical padding feel balanced without requiring numeric equality.
 - Avoid blanket uniformity where every gap is identical and uncontrolled variety where every gap is unique.
 - Match density to context. Productivity interfaces may need compact efficiency; focused or expressive experiences may need more breathing room.
+- Match row and section height to interaction frequency and information value. Repeated utility content should not become oversized merely to make the page feel luxurious.
 - Preserve adequate target size and readability even in compact layouts.
 - Treat unexpected one-off spacing values as a signal to inspect the underlying structure.
 - Prefer shared spacing tokens once a recurring relationship is established.
@@ -112,6 +127,7 @@ Make content readable, hierarchy unmistakable, and project character coherent.
 - Use weight deliberately. Do not make every label bold or depend on very light weights for hierarchy.
 - Keep uppercase text short. Tracked uppercase can suit navigation, metadata, and concise labels when the visual language calls for it.
 - Do not invent eyebrow or kicker labels merely to decorate headings. Use them only for real category, sequence, or context.
+- Do not treat genre as a typography preset. A reading product does not automatically require a newspaper-like serif, italic accent line, uppercase metadata, or oversized editorial headline; choose these only when the whole product benefits.
 - Keep body tracking near the typeface default; use modest tracking for small uppercase labels; avoid aggressive tightening without typographic reason.
 - Use tabular numerals for aligned comparison or dynamically changing values that would otherwise jitter.
 - Use balanced wrapping for short headings and prettier wrapping for prose as progressive enhancements when they improve the composition.
@@ -200,6 +216,7 @@ Build consistent, understandable units without unnecessary abstraction or varian
 - Match semantics and affordance: buttons perform actions, links navigate, and controls look usable.
 - Keep input labels persistent. Use placeholders for examples or hints, not as the only label.
 - Place helper text, validation, units, and errors near the field and preserve programmatic relationships.
+- Validate whether input is useful for the product, not only whether a parser accepts it. Test whitespace, missing or malformed identifiers, unsupported schemes or formats, boundary lengths, and values that are syntactically valid but operationally meaningless.
 - Give icon-only controls familiar symbols, accessible names, and tooltips where helpful. Use text when an icon would remain ambiguous.
 - Provide adequate target size and separation without requiring the visible shape to fill the target.
 - Support long labels, wrapping, localization, real data, empty values, and narrow containers.
@@ -217,14 +234,17 @@ Make interactions predictable, responsive, reversible where possible, and approp
 - Reserve space for revealed controls or overlay them intentionally so rows and targets do not shift.
 - Give every action immediate and proportional feedback near the affected content.
 - Preserve user context: avoid unnecessary navigation, scroll jumps, focus loss, and resets.
+- Treat removal, reordering, filtering, and DOM replacement as focus-management events. Preserve focus when the control remains, or move it to the nearest logical target and verify the next keyboard action.
 - Prevent duplicate submissions while pending and keep the interface informative rather than inert.
 - Use optimistic updates only when success is likely, reversal is easy, and failure can be reconciled clearly.
 - Preserve user input on failure, explain the problem usefully, and offer recovery.
 - Prefer undo for common reversible actions. Confirm destructive, costly, or difficult-to-reverse actions with non-obvious consequences.
+- Define how undo behaves when actions repeat: whether pending operations stack, replace one another, or commit the previous operation. Keep the outcome truthful and understandable.
 - Avoid confirmation for low-risk actions merely because it is easy to add.
 - Avoid unexpected navigation, autoplay, automatic submission, or changes triggered by hover alone.
 - Support mouse, touch, and keyboard; provide alternatives to hover, precision pointing, gestures, and drag-and-drop.
 - Manage overlays predictably: place focus appropriately, provide dismissal, return focus to the trigger, and protect unsaved work.
+- Announce concise outcomes through a dedicated status region when needed. Do not make a large list, form, or frequently rerendered container live merely because something inside it changes.
 
 ### Motion and easing
 
@@ -310,7 +330,7 @@ Resolve visible roughness and inconsistency rather than adding decoration or pur
 - Do not use character counts as a visual substitute for available-space measurement, especially with proportional type.
 - Use real character limits only when the content domain requires them.
 - Preserve distinguishing content. Middle-truncate paths, identifiers, or filenames when both ends matter; do not silently hide critical statuses, values, or extensions.
-- Make complete content available through an appropriate detail, expansion, focus, or hover path rather than hover alone.
+- If meaningful content is clamped, provide a keyboard- and touch-operable expansion or detail view. A tooltip or title attribute may supplement that path but must not be the sole disclosure.
 
 ### Spatial stability
 
@@ -324,7 +344,9 @@ Resolve visible roughness and inconsistency rather than adding decoration or pur
 ### Finishing discipline
 
 - Keep terminology, capitalization, punctuation, labels, date/number formats, and tone consistent.
+- Humanize generated labels and source names instead of exposing concatenated domains, machine casing, or raw identifiers without purpose.
 - Remove dead controls, duplicate information, placeholders, unexplained sample data, and obsolete decoration.
+- Do not synthesize factual-looking metadata merely to preserve a row or card anatomy. Omit it, request it, or label a defensible calculation explicitly as an estimate.
 - Move recurring one-off values into tokens or shared components only when they reveal a real pattern.
 - Test complete interaction paths, including focus, scroll position, errors, recovery, and returning from overlays.
 - Prioritize visible and use-affecting issues; do not delay completion for microscopic differences at normal viewing conditions.
@@ -332,6 +354,22 @@ Resolve visible roughness and inconsistency rather than adding decoration or pur
 - Use manual optical correction only when the user explicitly requests it or identifies a visible imbalance.
 - Before any optical nudge, correct geometry. Limit adjustment to an asymmetric shape inside a fixed control and normally to 1 CSS pixel. If more than 2 pixels seems necessary, fix the asset, dimensions, typography, or layout.
 - Apply an approved correction to the shared component or asset, never to grids, text blocks, group spacing, or general layout.
+
+### Mandatory rendered review
+
+- Render substantial UI work at representative wide, intermediate, and narrow sizes. Inspect the pixels; do not treat the existence of responsive CSS or component states as evidence that the composition works.
+- Check the first viewport: does useful product content dominate, or has low-value atmosphere pushed the task away?
+- Check shared edges, baseline relationships, content widths, density, wrapping, and the distance between related controls. Correct arbitrary offsets and dead zones.
+- Check control affordances at normal viewing size. Tiny icons, faint labels, ambiguous status markers, and invisible input boundaries may be technically present but visually incompetent.
+- Check whether the visual direction is improving the product or performing “design” around it. Remove theatrical copy, scale, spacing, and decoration that do not help use.
+- Make at least one deliberate correction pass after seeing the rendered result. Do not ship the first coherent-looking composition.
+
+### Mandatory interaction review
+
+- Exercise every visible control and remove dead or placeholder affordances.
+- Test malformed and boundary input, long-content recovery, repeated destructive actions and undo, and keyboard-only operation across state mutations.
+- Verify that focus, scroll position, and spatial context survive filtering, rerendering, insertion, removal, and overlay dismissal.
+- Verify that dynamic announcements are concise and that factual-looking content or metadata is truthful.
 
 Check: Does the interface feel finished because rough edges are resolved rather than because more styling was added?
 
@@ -364,6 +402,10 @@ Actively resist generation shortcuts that produce plausible but generic, incoher
 - Remove generic filler copy, redundant subtitles, decorative eyebrows, and instructions that narrate an interface that could be self-explanatory.
 - Do not turn every section, datum, action, and status into a card, pill, badge, or bordered container.
 - Question gratuitous purple-blue gradients, glows, glass, oversized rounded rectangles, excessive whitespace, enormous type, floating blobs, and universal animation. Use them only when the visual thesis supports them.
+- Question the current editorial-agent style bundle with equal rigor: paper-toned backgrounds, a giant serif statement split across lines, one italic accent word, rust or orange highlights, tiny uppercase metadata, decorative dates, colored punctuation in a wordmark, sparse divider rows, and large areas of cultivated emptiness. Any one may work; combining them by reflex is not product-specific design.
+- Do not translate a product category into its most literal visual genre by default: reading into a magazine spread, finance into glassy charts, developer tools into terminal theater, or creative work into floating gradient blobs.
+- Do not turn a utility into a landing page. A recurring-use application rarely needs a persistent hero or philosophical tagline above its controls and content.
+- Do not let art direction excuse weak alignment, low information density, tiny controls, ambiguous affordances, crude labels, or unfinished interaction behavior.
 - Use icons for recognition or justified space savings, not to decorate every label. Keep one coherent icon family and do not mix arbitrary symbols, emoji, fill styles, and outline styles.
 - Preserve existing language, architecture, components, and brand during revisions. Do not substitute a generic redesign or expand scope because rebuilding is easier.
 - Make every visible control real. Remove dead buttons, fake filters, unexplained charts, placeholder navigation, and hover effects on static objects.
