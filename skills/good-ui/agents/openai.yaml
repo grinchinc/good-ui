@@ -1,0 +1,4 @@
+interface:
+  display_name: "Good UI"
+  short_description: "Design polished, intentional, resilient interfaces"
+  default_prompt: "Use $good-ui to design or refine this interface with strong visual fundamentals."
