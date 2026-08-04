@@ -204,6 +204,19 @@ Check: Can every edge, surface change, and elevation level be explained by a rea
 
 Build consistent, understandable units without unnecessary abstraction or variant complexity.
 
+### Reuse behavior; own the presentation
+
+- Inspect the project's existing components and dependencies before creating a new primitive or adding another library.
+- Use native HTML for straightforward behavior, but do not confuse native semantics with mandatory browser-default presentation.
+- Avoid conspicuously default browser chrome when it clashes with an otherwise authored interface, especially for selects, date inputs, file inputs, checkboxes, radios, and range controls.
+- When native styling is too limited, prefer a mature customizable primitive—such as Base UI, React Aria, Radix, or Ariakit—over rebuilding difficult interaction behavior from generic elements.
+- Skin primitives through the project's semantic tokens and component language. Do not copy a library's demo aesthetic or allow several libraries to create competing visual systems.
+- Preserve expected keyboard, focus, form, overlay, and touch behavior. A custom-looking control that behaves worse than its native counterpart is unfinished.
+- Treat a library's accessibility as a strong foundation, not a guarantee; verify the assembled control in its actual context.
+- Do not add a dependency for simple layout, a basic button, or behavior the platform already handles well. Avoid a library whose structure must be heavily fought to produce the intended experience.
+- Keep native platform presentation when it provides materially better behavior for the context—commonly some mobile pickers—or when an intentionally utilitarian interface gains little from custom treatment.
+- Extend an established primitive before creating a subtly incompatible duplicate.
+
 - Use native semantic elements and established interaction patterns as the foundation.
 - Give each component stable anatomy; align and space repeated parts consistently.
 - Create reusable components when structure or behavior genuinely repeats. Do not abstract every one-off arrangement.
