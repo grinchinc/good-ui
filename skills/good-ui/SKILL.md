@@ -5,22 +5,25 @@ description: Apply broadly useful visual and interaction design fundamentals whe
 
 # Good UI
 
-Use this skill as a design-judgment layer, not as a visual style or a rigid workflow. Make the interface feel intentional, competent, and specific to its product while preserving existing brand character and the user's direction.
+Use this skill as a design-judgment layer, not as a visual style or a rigid workflow. Make the interface feel intentional, competent, and specific to its product while preserving existing brand character and the user's direction. Establish functional competence before adding conspicuous art direction.
 
 ## Core rules — do not ignore
 
-1. **Design for this product.** Derive the visual direction from the product, audience, content, and existing brand. Do not fall back to generic SaaS layouts or fashionable agent defaults.
-2. **Make hierarchy unmistakable.** Give every screen a clear focal point, primary purpose, and action priority. Use size, weight, contrast, position, and space together.
-3. **Prefer structure over enclosure.** Communicate grouping with alignment, proximity, and typography before reaching for cards, borders, dividers, backgrounds, or nested containers. Avoid container slop and line slop.
-4. **Use a coherent system.** Reuse a small spacing scale, semantic type styles, consistent shape language, and a color token chain of palette → semantic roles → components. Build color relationships in OKLCH and evaluate readable pairs with APCA.
-5. **Make typography carry its share.** Choose readable type, sensible measures and line heights, a small number of clearly distinct levels, and wrapping that survives real content. Do not decorate every heading with an eyebrow label.
-6. **Keep the layout stable and resilient.** Align precisely, reserve space for asynchronous or changing content, avoid careless layout shift, and test realistic data, long labels, empty states, and intermediate viewport sizes.
-7. **Make components complete.** Use the correct semantic element and implement every relevant state: default, hover where available, pressed, focus-visible, disabled, selected, loading, empty, success, and error. Do not ship fake or dead controls.
-8. **Preserve capability across inputs and sizes.** Keep core tasks usable across mouse, keyboard, touch, narrow screens, zoom, and localization. Adapt the composition instead of merely shrinking or stacking it.
-9. **Make interaction feedback proportional.** Keep primary actions visible, disclose repetitive secondary actions thoughtfully, preserve user context, and make outcomes and recovery clear. Use motion to explain change—not to decorate everything—and choose deliberate easing instead of mechanical linear motion for ordinary state changes.
-10. **Build practical accessibility in from the start.** Favor semantic HTML, labels, keyboard operation, visible focus, usable contrast, and reduced-motion support. Calibrate rigor to the project's reach and stakes; avoid both severe preventable barriers and accessibility theater.
-11. **Spend attention deliberately.** Strong color, scale, motion, elevation, and decoration are limited resources. Let a few ideas carry the character and remove treatments that do not add meaning or useful expression.
-12. **Reject agent slop.** Do not invent content or features to fill a composition, overuse cards/pills/gradients/glass/huge type, mix icon languages, or replace a coherent existing product with a generic redesign. Every visible element must be justified by real content, behavior, or intent.
+1. **Design for the task, not a concept.** Derive visual decisions from the product, audience, content, and existing brand. Product-specific design should improve use; it does not require a literal theme, manifesto, or conspicuous visual thesis.
+2. **Make the working surface primary.** In application UI, put the recurring task and useful content ahead of promotional composition. Do not wrap a tool in a landing-page hero unless that material serves a real, current user need.
+3. **Establish competence before expression.** Resolve alignment, density, typography, control affordance, content quality, state behavior, and responsiveness before spending attention on art direction.
+4. **Make hierarchy proportional.** Give every screen a clear focal point and action priority, but size each element according to its actual utility and frequency. Decorative or explanatory copy must not overpower the product.
+5. **Prefer structure over enclosure.** Communicate grouping with alignment, proximity, and typography before reaching for cards, borders, dividers, backgrounds, or nested containers. Avoid container slop and line slop.
+6. **Use a coherent system.** Reuse a small spacing scale, semantic type styles, consistent shape language, and a color token chain of palette → semantic roles → components. Build color relationships in OKLCH and evaluate readable pairs with APCA.
+7. **Make typography carry its share.** Choose readable type, sensible measures and line heights, a small number of clearly distinct levels, and wrapping that survives real content. Do not decorate every heading with an eyebrow label.
+8. **Keep the layout stable and resilient.** Align precisely, reserve space for asynchronous or changing content, avoid careless layout shift, and test realistic data, long labels, empty states, and intermediate viewport sizes.
+9. **Make components complete.** Use the correct semantic element and implement every relevant state: default, hover where available, pressed, focus-visible, disabled, selected, loading, empty, success, and error. Do not ship fake or dead controls.
+10. **Preserve capability across inputs and sizes.** Keep core tasks usable across mouse, keyboard, touch, narrow screens, zoom, and localization. Adapt the composition instead of merely shrinking or stacking it.
+11. **Make interaction feedback proportional.** Keep primary actions visible, disclose repetitive secondary actions thoughtfully, preserve user context, and make outcomes and recovery clear. Use motion to explain change—not to decorate everything—and choose deliberate easing instead of mechanical linear motion for ordinary state changes.
+12. **Build practical accessibility in from the start.** Favor semantic HTML, labels, keyboard operation, visible focus, usable contrast, and reduced-motion support. Calibrate rigor to the project's reach and stakes; avoid both severe preventable barriers and accessibility theater.
+13. **Spend attention deliberately.** Strong color, scale, motion, elevation, and decoration are limited resources. Let a few ideas carry the character and remove treatments that do not add meaning or useful expression.
+14. **Reject agent slop.** Do not invent content or features to fill a composition, overuse cards/pills/gradients/glass/huge type, mix icon languages, or swap one generic style bundle for another. Every visible element must be justified by real content, behavior, or intent.
+15. **Inspect the rendered result.** Do not mistake implemented CSS, component coverage, or a coherent theme for a competent interface. Render substantial work at representative sizes, inspect the actual composition, and correct visible problems before delivery.
 
 ## Use the detailed guidance
 
