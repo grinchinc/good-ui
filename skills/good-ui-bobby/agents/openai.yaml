@@ -1,0 +1,4 @@
+interface:
+  display_name: "Good UI Bobby"
+  short_description: "Opinionated UI defaults for personal projects"
+  default_prompt: "Use $good-ui-bobby to build or refine this product UI with my spacing, motion, component, and project workflow defaults."
