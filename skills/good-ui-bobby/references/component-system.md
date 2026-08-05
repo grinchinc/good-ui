@@ -5,10 +5,17 @@ Create a small, coherent system whenever the task introduces a new product surfa
 ## Establish the foundation
 
 - Inspect and extend existing tokens before creating new ones.
-- Define semantic roles for spacing, control sizes, typography, color, focus, surfaces, borders, elevation, radii, and motion.
+- Define semantic roles for spacing, control sizes, typography, color, focus, surfaces, borders, elevation, radii, edge clearance, and motion.
 - Keep raw values inside the token layer or isolated artwork, not scattered through components.
 - Choose variants by role, emphasis, size, density, or state. Avoid APIs that encode visual accidents or every possible prop combination.
 - Prefer semantic HTML and mature primitives for difficult behavior. Do not rebuild complex menus, dialogs, comboboxes, or focus management from generic elements when a reliable primitive already exists.
+
+## Protect component edges
+
+- Make internal insets part of the component contract. Expose a deliberate density or edge-clearance variant when the spacing genuinely changes.
+- Keep text, icons, controls, focus rings, hit areas, and nested surfaces visually clear of borders and container edges. Do not allow a child to touch the boundary because its parent happens to be `display: flex` or because it fills the available width.
+- Keep the inner spacing of nested surfaces coherent with the outer inset. Reduce treatment at inner levels, but do not remove the air needed to read the boundary.
+- Test the component with short and long labels, leading and trailing icons, validation states, loading states, keyboard focus, and expanded hit areas. Edge problems often appear only in one state.
 
 ## Build real components
 
@@ -17,11 +24,13 @@ For each reusable interactive component, define:
 1. Stable anatomy and semantic markup.
 2. Visual sizes and spacing from the shared scale.
 3. An adequate hit area that does not damage neighboring interactions.
-4. Relevant default, hover, focus-visible, pressed, selected, disabled, loading, validation, and error states.
-5. Long-label, empty, overflow, narrow-width, and localization behavior where relevant.
-6. Keyboard, touch, focus recovery, and reduced-motion behavior.
+4. Authored project-appropriate presentation with no default or fake-icon treatment.
+5. Explicit edge clearance for content, icons, hit areas, and focus rings.
+6. Relevant default, hover, focus-visible, pressed, selected, disabled, loading, validation, and error states.
+7. Long-label, empty, overflow, narrow-width, and localization behavior where relevant.
+8. Keyboard, touch, focus recovery, and reduced-motion behavior.
 
-Use real product content and actual component imports. Do not create a separate “designer version” that drifts from production behavior.
+Use real product content and actual component imports. Do not create a separate "designer version" that drifts from production behavior.
 
 ## Create the review surface
 
@@ -30,6 +39,7 @@ For substantial UI work, create a dev-only component review surface using the pr
 Show the actual components in isolation with:
 
 - Foundation tokens and spacing examples.
+- Edge-clearance examples, including dense, normal, spacious, and intentional edge-to-edge variants.
 - Primitive and composed component variants.
 - Relevant control sizes and densities.
 - Hover, focus-visible, pressed, selected, disabled, loading, validation, and error states.
