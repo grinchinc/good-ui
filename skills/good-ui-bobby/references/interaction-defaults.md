@@ -2,6 +2,36 @@
 
 Use these as strong defaults, then adapt them to the product and input method.
 
+## Visual ownership
+
+Treat visual customization as a requirement for shipped UI, not a finishing option.
+
+- Style every visible control, field, select, menu, surface, icon, state, and feedback treatment through the project's tokens and visual language.
+- Do not leave browser defaults, generated-library demo styling, placeholder appearance, or accidental native chrome in the final interface.
+- Reuse accessible behavior from native elements or mature primitives, but own the presentation. Customizing presentation does not mean rebuilding reliable interaction behavior from scratch.
+- Inspect the rendered result in context. A class name or theme wrapper is not evidence that the element is actually customized.
+
+## Real icons
+
+- Use an established icon component, inline SVG, local SVG asset, or platform icon system for visual symbols.
+- Never substitute Unicode glyphs, emoji, ASCII art, or text characters for icons. This includes check marks, plus signs, close symbols, arrows, hamburger menus, carets, stars, and settings symbols.
+- Do not mix arbitrary icon families, weights, fill styles, or stroke conventions. Match icon size, optical weight, and alignment to the component.
+- Give icon-only controls an accessible name and a tooltip when the meaning is not immediately obvious. Do not use the icon's source name as visible UI copy.
+
+## Edge clearance
+
+Give every bounded component an explicit internal inset. A component should feel designed from its boundary inward, not like content was dropped into an available box.
+
+- Keep at least 8px between a visible boundary and the nearest content or interactive target in dense UI. Prefer 12px for compact controls, 16px for normal controls, and 24px for spacious surfaces. Keep values on the 4px grid.
+- Count the full visual footprint: text, icon box, gap, hit area, focus ring, validation affordance, and any nested surface. Do not inspect only the text baseline.
+- Set component padding and gaps at the component level. Do not repair cramped anatomy with arbitrary margins at each usage site.
+- For fields and selects, give leading content, label/value text, trailing icons, and the border a balanced inset. Do not let a caret, clear button, or status icon sit visually against the edge.
+- If one side is intentionally denser, make it a named variant with a reason. Do not let flex alignment, `width: 100%`, absolute positioning, or an oversized hit area create accidental edge contact.
+- Treat a flush treatment as an explicit edge-to-edge variant. Clip, align, and document it intentionally; never arrive there by omission.
+- Review screenshots at normal viewing size. If the boundary reads as touching the content even when the measured gap is nonzero, increase the inset or rebalance the component.
+
+Use an edge-clearance pass in the component gallery: inspect all four sides of every bounded primitive and its focus ring, hover layer, and expanded hit area.
+
 ## Grid and control scale
 
 - Use 4px as the atomic spacing unit and 8px as the preferred macro rhythm.
@@ -35,6 +65,18 @@ Treat hover and pressed feedback as required for interactive elements unless the
 - Keep hover feedback pointer-specific; never make hover the only route to an action or piece of information.
 - Make pressed feedback immediate and restrained. A small transform, surface shift, shadow change, or color change is enough when it suits the component.
 - Keep disabled controls legible and non-interactive. Preserve layout and explain unavailability when the reason matters.
+
+## Focus hygiene
+
+Prevent accidental focus without hiding legitimate keyboard focus.
+
+- Use `:focus-visible` for the visible focus treatment when the project supports input-modality detection. Keep `:focus:not(:focus-visible)` visually quiet when pointer focus does not need an indicator, while preserving the actual focus target and keyboard behavior.
+- Never globally remove outlines without replacing them. Never use `preventDefault` on pointer-down merely to hide a focus ring; it can break focus, dragging, text selection, and assistive technology behavior.
+- Do not autofocus by default. Do not focus elements on hover, during passive animation, or simply because a component mounted. Programmatically move focus only when a context change requires it, such as opening a dialog or moving into a newly revealed task.
+- Do not add `tabindex` to noninteractive containers to make focus styling easier. Use the correct native element or an accessible primitive.
+- When an overlay opens, place focus deliberately; when it closes, return focus to the trigger. When a list, table, or menu mutates, preserve focus or move it to the nearest logical target.
+- Keep focus rings visible, intentional, and unclipped. Account for the ring in edge-clearance and overflow decisions.
+- Test with pointer, touch, keyboard-only, and screen-reader paths. A focus ring after Tab is correct; an unexplained ring after an ordinary pointer click, hover, mount, or rerender is not.
 
 ## Motion and continuity
 
